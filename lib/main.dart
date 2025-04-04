@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:simple_music_player/screens/home_page.dart';
-import 'package:simple_music_player/theme/dark_theme.dart';
-import 'package:simple_music_player/theme/light_theme.dart';
+import 'package:simple_music_player/theme/theme_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -15,9 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      // themeMode: ThemeMode.system,
-      // darkTheme: darkMode,
-      theme: lightMode,
+      theme: Provider.of<ThemeProvider>(context).themeData,
       home: HomePage(),
     );
   }
