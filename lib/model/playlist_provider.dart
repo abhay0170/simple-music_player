@@ -32,4 +32,30 @@ class PlaylistProvider extends ChangeNotifier {
           "assets/audio/Vishnu_Vijay,_Sanjith_Hegde,_Suhail_Koya_Everyday_From_Alap.mp3",
     ),
   ];
+
+  // current song  playing index
+  int? _currentSongIndex;
+
+  /*
+
+  GETTERS
+
+  */
+
+  List<Song> get playlist => _playlist;
+  int? get currentSongIndex => _currentSongIndex;
+
+  /*
+
+  SETTERS
+  
+  */
+
+  set currentSongIndex(int? newIndex) {
+    // update current song index
+    _currentSongIndex = newIndex;
+
+    // update the UI
+    notifyListeners();
+  }
 }

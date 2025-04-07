@@ -15,14 +15,15 @@ class ThemeProvider extends ChangeNotifier {
   // set theme
   set themeData(ThemeData themeData) {
     _themeData = themeData;
+    // update UI
     notifyListeners();
   }
 
   toggleTheme() {
     if (_themeData == lightMode) {
-      _themeData = darkMode;
+      themeData = darkMode;
     } else {
-      _themeData = lightMode;
+      themeData = lightMode;
     }
   }
 }
